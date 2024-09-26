@@ -1,5 +1,6 @@
 package kr.co.soo1e.product.management.presentation;
 
+import jakarta.validation.Valid;
 import kr.co.soo1e.product.management.application.SimpleProductService;
 import kr.co.soo1e.product.management.domain.Product;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ public class ProductController {
     // 추가 부분 종료
 
     @RequestMapping(value = "/products", method = RequestMethod.POST)
-    public ProductDTO createProduct(@RequestBody ProductDTO productDTO) {
+    public ProductDTO createProduct(@Valid @RequestBody ProductDTO productDTO) {
         // Product를 생성하고 리스트에 넣는 작업이 필요함
         return simpleProductService.add(productDTO);
     }
